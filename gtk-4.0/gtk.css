@@ -1,6 +1,6 @@
-@define-color accent_color rgb(242,140,42);
-@define-color accent_bg_color rgb(251,184,108);
-@define-color accent_fg_color rgb(48,48,48);
+@define-color accent_color rgb(242, 140, 42);
+@define-color accent_bg_color rgb(251, 184, 108);
+@define-color accent_fg_color rgb(48, 48, 48);
 @define-color destructive_color #ff7b63;
 @define-color destructive_bg_color #c01c28;
 @define-color destructive_fg_color #ffffff;
@@ -12,25 +12,25 @@
 @define-color warning_fg_color rgba(0, 0, 0, 0.8);
 @define-color error_color #ff7b63;
 @define-color error_bg_color #c01c28;
-@define-color error_fg_color rgb(54,54,54);
-@define-color window_bg_color rgb(48,48,48);
+@define-color error_fg_color rgb(54, 54, 54);
+@define-color window_bg_color rgb(48, 48, 48);
 @define-color window_fg_color #ffffff;
-@define-color view_bg_color rgb(43,43,43);
+@define-color view_bg_color rgb(43, 43, 43);
 @define-color view_fg_color #ffffff;
-@define-color headerbar_bg_color rgb(54,54,54);
+@define-color headerbar_bg_color rgb(54, 54, 54);
 @define-color headerbar_fg_color #ffffff;
 @define-color headerbar_border_color #ffffff;
-@define-color headerbar_backdrop_color rgb(54,54,54);
+@define-color headerbar_backdrop_color rgb(54, 54, 54);
 @define-color headerbar_shade_color rgba(0, 0, 0, 0.36);
-@define-color card_bg_color rgb(39,39,39);
+@define-color card_bg_color rgb(39, 39, 39);
 @define-color card_fg_color #ffffff;
-@define-color card_shade_color rgba(0,0,0,0.36);
+@define-color card_shade_color rgba(0, 0, 0, 0.36);
 @define-color dialog_bg_color #383838;
 @define-color dialog_fg_color #ffffff;
-@define-color popover_bg_color rgb(43,43,43);
+@define-color popover_bg_color rgb(43, 43, 43);
 @define-color popover_fg_color #ffffff;
-@define-color shade_color rgba(0,0,0,0.36);
-@define-color scrollbar_outline_color rgba(0,0,0,0.5);
+@define-color shade_color rgba(0, 0, 0, 0.36);
+@define-color scrollbar_outline_color rgba(0, 0, 0, 0.5);
 @define-color blue_1 #99c1f1;
 @define-color blue_2 #62a0ea;
 @define-color blue_3 #3584e4;
@@ -76,65 +76,274 @@
 @define-color dark_3 #3d3846;
 @define-color dark_4 #241f31;
 @define-color dark_5 #000000;
+/*****************
+ *WINDOW CONTROLS*
+ *****************/
+
+/* Transparent background and reduce size to GTK3 levels*/
 windowcontrols image {
-    background-color: transparent;
+	background-color: transparent;
 	background-clip: content-box;
 }
+
 /* If you want to keep the circles when you hover: */
 windowcontrols image:hover {
-    background-color: alpha(@headerbar_fg_color, 0.16);
+	background-color: alpha(@headerbar_fg_color, 0.16);
 }
 /* When the buttons are pushed down: */
 windowcontrols image:active {
-    background-color: alpha(@headerbar_fg_color, 0.10);
+	background-color: alpha(@headerbar_fg_color, 0.10);
 }
 headerbar windowcontrols button.close image {
-    background-color: #f28c2a;
+	background-color: #f28c2a;
 }
 headerbar windowcontrols button.close image:hover {
-    background-color: #5e5e5e;
+	background-color: #5e5e5e;
 }
 headerbar windowcontrols button.close image:active {
-    background-color: alpha(@headerbar_fg_color, 0.10);
+	background-color: alpha(@headerbar_fg_color, 0.10);
 }
 headerbar:backdrop windowcontrols button.close image {
-    background-color: transparent;
+	background-color: transparent;
 }
 headerbar:backdrop windowcontrols button.close image:hover {
-    background-color: alpha(@headerbar_fg_color, 0.10);
+	background-color: alpha(@headerbar_fg_color, 0.10);
 }
+
+/*****************
+ *CONTROL WIDGETS*
+ *****************/
 switch slider {
-    background-color: #363636;
+	background-color: #363636;
 }
 switch {
-    background-color: #686868;
+	background-color: #686868;
 }
 switch:checked {
-    background-color: #fbb86c;
+	background-color: @accent_bg_color;
 }
-checkbutton check:checked{
-    color: #363636;
+
+checkbutton check:checked {
+	color: #363636;
+	background-color: @accent_bg_color;
 }
-scale highlight{
-    background-color: #94ebeb;
+
+scale highlight {
+	background-color: #94ebeb;
 
 }
-scale slider{
-    background-color: #94ebeb;
+
+scale slider {
+	background-color: #94ebeb;
 }
-list row.activatable:selected{
-     color: @dark_5;
-     background-color: #94ebeb;
+
+/*****************
+ *CARDS/BOXEDLIST*
+ *****************/
+
+/*Borders to seperate foreground from background */
+.card {
+	border-radius: 5px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: @shade_color;
 }
-.boxed-list{
- 	border-style: solid;
-  	border-width: 1px;
-	border-color: @card_shade_color;
+
+list.boxed-list  {
+	border-radius: 5px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: @shade_color;
+}
+
+list.boxed-list row:not(:last-child):not(:first-child):only-child{
+	border-radius: 0px;
+}
+
+/*nested rows are wierd and don't have a color*/
+list.boxed-list row.expander list.nested > row:last-child:not(:only-child) {
+	background-color: #202020;
+}
+
+/*middle rows are straight*/
+list.boxed-list row:not(:last-child):not(:first-child):hover{
+	border-radius: 0px;
+}
+
+/*end rows are rounded at the bottom*/
+list.boxed-list row:last-child, list.boxed-list row:last-child:hover {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+/*begining rows are rounded at the top*/
+list.boxed-list row:first-child,list.boxed-list row:first-child:hover {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+list.boxed-list row.activatable:not(:last-child):not(:first-child):selected {
+	color: @dark_5;
+	background-color: #94ebeb;
+	border-radius: 0px;
+}
+
+list.boxed-list row.activatable:last-child:selected{
+	color: @dark_5;
+	background-color: #94ebeb;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+list.boxed-list row.activatable:first-child:selected {
+	color: @dark_5;
+	background-color: #94ebeb;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+row.activatable:selected {
+	color: @dark_5;
+	background-color: #94ebeb;
+}
+
+
+list row.entry:only-child,list row.entry:only-child:hover {
+	border-radius: 5px;
+}
+window {
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+/*Fixed Dialog Buttons */
+window.background.csd.messagedialog .response-area button:first-child {
+	border-bottom-left-radius: 5px;
+}
+
+window.background.csd.messagedialog .response-area button:last-child {
+	border-bottom-right-radius: 5px;
+}
+
+scrollbar range trough slider:active {
+	color: #94ebeb;
+}
+
+
+/***************
+ *Viewswitcher *
+ ***************/
+viewswitcher button.flat.horizontal.toggle {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	border-radius: 0px;
+}
+
+viewswitcher button.flat.horizontal.toggle:hover {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	border-radius: 0px;
+	box-shadow: inset 0px -4px darker(@headerbar_bg_color);
+}
+
+viewswitcher button.flat.horizontal.toggle:checked {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	border-radius: 0px;
+	box-shadow: inset 0px -4px @accent_bg_color;
+}
+
+viewswitcher button.flat.horizontal.toggle box, viewswitcher button.flat.vertical.toggle box {
+	margin-top: 2px;
+}
+
+
+revealer viewswitcher button.flat.vertical.toggle box {
+	margin-top: 5px;
+}
+
+viewswitcher button.flat.vertical.toggle {
+	margin-bottom: 0px;
+	border-radius: 0px;
+}
+
+viewswitcher button.flat.vertical.toggle:hover {
+	margin-bottom: 0px;
+	border-radius: 0px;
+	box-shadow: inset 0px -4px darker(@headerbar_bg_color);
+}
+
+viewswitcher button.flat.vertical.toggle:checked {
+	margin-bottom: 0px;
+	border-radius: 0px;
+	box-shadow: inset 0px -4px @accent_bg_color;
+}
+
+/*When view switcher is at the bottom and narrow*/
+revealer viewswitcher.narrow button.flat.vertical.toggle {
+	margin-bottom: 0px;
+	border-radius: 0px;
+}
+
+revealer viewswitcher.narrow button.flat.vertical.toggle:hover {
+	margin-bottom: 0px;
+	border-radius: 0px;
+	box-shadow: inset 0px 4px darker(@headerbar_bg_color);
+}
+
+revealer viewswitcher.narrow button.flat.vertical.toggle:checked {
+	margin-bottom: 0px;
+	border-radius: 0px;
+	box-shadow: inset 0px 4px @accent_bg_color;
+}
+
+/*******
+ *TABS *
+ *******/
+tabboxchild {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	border-radius: 0px;
+}
+
+tabboxchild tab {
+	border-radius: 0px;
+}
+
+tabboxchild tab:selected {
+	border-radius: 0px;
+	box-shadow: inset 0px -4px @accent_bg_color;
+}
+
+tabboxchild tab:hover:not(:selected) {
+	border-radius: 0px;
+	box-shadow: inset 0px -4px darker(@headerbar_bg_color);
+}
+
+tabthumbnail picture {
+	border-radius: 5px;
+}
+
+popover contents {
+	border-radius: 5px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: @shade_color;
+}
+
+box.horizontal.linked button:first-child:hover{
+	border-bottom-left-radius: 5px;
 
 }
-window{
-     border-bottom-left-radius: 5px;
-     border-bottom-right-radius: 5px;
-     border-top-left-radius: 5px;
-     border-top-right-radius: 5px;
-} scrollbar range trough slider:active {color:#94ebeb;}
+
+box.horizontal.linked button:last-child:hover{
+	border-bottom-right-radius: 5px;
+}
