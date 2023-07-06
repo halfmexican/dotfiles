@@ -168,28 +168,22 @@ windowcontrols image {
 windowcontrols image:hover {
 	background-color: alpha(@headerbar_fg_color, 0.16);
 }
-
 /* When the buttons are pushed down: */
 windowcontrols image:active {
 	background-color: alpha(@headerbar_fg_color, 0.10);
 }
-
 headerbar windowcontrols button.close image {
 	background-color: #f28c2a;
 }
-
 headerbar windowcontrols button.close image:hover {
 	background-color: #5e5e5e;
 }
-
 headerbar windowcontrols button.close image:active {
 	background-color: alpha(@headerbar_fg_color, 0.10);
 }
-
 headerbar:backdrop windowcontrols button.close image {
 	background-color: transparent;
 }
-
 headerbar:backdrop windowcontrols button.close image:hover {
 	background-color: alpha(@headerbar_fg_color, 0.10);
 }
@@ -200,11 +194,9 @@ headerbar:backdrop windowcontrols button.close image:hover {
 switch slider {
 	background-color: #363636;
 }
-
 switch {
 	background-color: #686868;
 }
-
 switch:checked {
 	background-color: @accent_bg_color;
 }
@@ -235,30 +227,29 @@ scale slider {
 	border-color: @shade_color;
 }
 
-list.boxed-list {
+list.boxed-list  {
 	border-radius: 5px;
 	border-style: solid;
 	border-width: 1px;
 	border-color: @shade_color;
 }
 
-list.boxed-list row:not(:last-child):not(:first-child):only-child {
+list.boxed-list row:not(:last-child):not(:first-child):only-child{
 	border-radius: 0px;
 }
 
 /*nested rows are wierd and don't have a color*/
-list.boxed-list row.expander list.nested>row:last-child:not(:only-child) {
+list.boxed-list row.expander list.nested > row:last-child:not(:only-child) {
 	background-color: #202020;
 }
 
 /*middle rows are straight*/
-list.boxed-list row:not(:last-child):not(:first-child):hover {
+list.boxed-list row:not(:last-child):not(:first-child):hover{
 	border-radius: 0px;
 }
 
 /*end rows are rounded at the bottom*/
-list.boxed-list row:last-child,
-list.boxed-list row:last-child:hover {
+list.boxed-list row:last-child, list.boxed-list row:last-child:hover {
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
 	border-bottom-left-radius: 5px;
@@ -266,8 +257,7 @@ list.boxed-list row:last-child:hover {
 }
 
 /*begining rows are rounded at the top*/
-list.boxed-list row:first-child,
-list.boxed-list row:first-child:hover {
+list.boxed-list row:first-child,list.boxed-list row:first-child:hover {
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 	border-bottom-left-radius: 0px;
@@ -280,7 +270,7 @@ list.boxed-list row.activatable:not(:last-child):not(:first-child):selected {
 	border-radius: 0px;
 }
 
-list.boxed-list row.activatable:last-child:selected {
+list.boxed-list row.activatable:last-child:selected{
 	color: @dark_5;
 	background-color: #94ebeb;
 	border-top-left-radius: 0px;
@@ -302,11 +292,9 @@ row.activatable:selected {
 }
 
 
-list row.entry:only-child,
-list row.entry:only-child:hover {
+list row.entry:only-child,list row.entry:only-child:hover {
 	border-radius: 5px;
 }
-
 window {
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
@@ -331,8 +319,9 @@ scrollbar range trough slider:active {
 /***************
  *Viewswitcher *
  ***************/
+ 
 viewswitcher {
-	border-spacing: 0;
+border-spacing: 0;
 }
 viewswitcher button.flat.horizontal.toggle {
 	margin-top: 0px;
@@ -354,8 +343,7 @@ viewswitcher button.flat.horizontal.toggle:checked {
 	box-shadow: inset 0px -4px @accent_bg_color;
 }
 
-viewswitcher button.flat.horizontal.toggle box,
-viewswitcher button.flat.vertical.toggle box {
+viewswitcher button.flat.horizontal.toggle box, viewswitcher button.flat.vertical.toggle box {
 	margin-top: 2px;
 }
 
@@ -440,11 +428,10 @@ popover contents {
 	border-color: #202020;
 }
 
-box.horizontal.linked button:first-child:hover {
-	border-bottom-left-radius: 5px;
-
+box.horizontal.linked button:not(.circular):first-child:hover {
+  border-bottom-left-radius: 5px;
 }
 
-box.horizontal.linked button:last-child:hover {
-	border-bottom-right-radius: 5px;
+box.horizontal.linked button:not(.circular):last-child:hover {
+  border-bottom-right-radius: 5px;
 }
