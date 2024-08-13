@@ -1,9 +1,9 @@
 .csd headerbar { min-height: 42px;}
 
-headerbar windowcontrols button image:hover {
+headerbar windowcontrols button.close image:hover {
 	background-color: #5294e2;
 }
 
-headerbar GtkWindowControls button image:hover {
+headerbar GtkWindowControls button.close image:hover {
     background-color: #5294e2;
 }
