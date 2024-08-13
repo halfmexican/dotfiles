@@ -1,4 +1,6 @@
-.csd headerbar { min-height: 42px;}
+.csd headerbar { 
+	min-height: 42px;
+}
 
 headerbar windowcontrols button.close image:hover {
 	background-color: #5294e2;
