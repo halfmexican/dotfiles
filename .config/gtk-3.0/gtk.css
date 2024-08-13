@@ -1,4 +1,9 @@
-.ssd titlebar {  min-height: 47px;}
-csd headerbar { min-height: 47px;}
+.ssd titlebar {  
+	min-height: 46px;
+}
 
-.titlebutton:hover { background-color: #5294e2; }
+csd headerbar { 
+	min-height: 46px;
+}
+
+.titlebutton.close:hover { background-color: #5294e2; }
