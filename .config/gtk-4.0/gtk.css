@@ -1,11 +1,47 @@
-.csd headerbar { 
-	min-height: 42px;
+/* Define colors */
+@define-color accent_color #7e57c2;
+@define-color accent_bg_color #613583;
+
+/* Headerbar customization */
+.csd headerbar {
+  min-height: 42px;
 }
 
-headerbar windowcontrols button.close image:hover {
-	background-color: #5294e2;
+headerbar windowcontrols button.close image,
+headerbar GtkWindowControls button.close image {
+  background-color: @accent_color;
 }
 
-headerbar GtkWindowControls button.close image:hover {
-    background-color: #5294e2;
+/* GTK4 Window Controls */
+windowcontrols > button {
+  color: transparent;
+  min-width: 2px;
+  min-height: 2px;
+  border-radius: 100%;
+  padding: 0;
+  margin: 0 5px;
 }
+
+windowcontrols > button > image {
+  padding: 0;
+}
+
+/* Button styles */
+button.titlebutton.close,
+windowcontrols > button.close,
+button.titlebutton.maximize,
+windowcontrols > button.maximize,
+button.titlebutton.minimize,
+windowcontrols > button.minimize {
+  background-color: #505050;
+}
+
+button.titlebutton.close:hover,
+windowcontrols > button.close:hover,
+button.titlebutton.maximize:hover,
+windowcontrols > button.maximize:hover,
+button.titlebutton.minimize:hover,
+windowcontrols > button.minimize:hover {
+  opacity: 0.8;
+}
+
