@@ -1,3 +1,10 @@
+@define-color accent_color #7e57c2;
+@define-color accent_bg_color #613583;
+@define-color accent_color #7e57c2;
+@define-color accent_bg_color #613583;
+@define-color accent_color #7e57c2;
+@define-color accent_bg_color #613583;
+
 .ssd titlebar {  
 	min-height: 46px;
 }
@@ -6,4 +13,35 @@ csd headerbar {
 	min-height: 46px;
 }
 
-.titlebutton.close:hover { background-color: #5294e2; }
+/* GTK3 */
+
+button.titlebutton {
+  color: transparent;
+  min-width: 2px;
+  min-height: 2px;
+  border-radius: 100%;
+  padding: 0;
+  margin: 0 5px;
+  background-color: #505050;
+  border: none;
+}
+
+button.titlebutton:hover {
+  opacity: 0.8;
+}
+
+button.titlebutton image {
+  padding: 0;
+}
+
+button.titlebutton.close
+{
+  background-color: @accent_color;;
+}
+
+button.titlebutton.close:hover,
+button.titlebutton.maximize:hover,
+button.titlebutton.minimize:hover {
+  opacity: 0.8;
+}
+
