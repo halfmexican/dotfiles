@@ -35,7 +35,7 @@
     { "type": "uptime", "key": "{#separator}│  {#keys} Uptime:" },
     { "type": "packages", "key": "{#separator}│  {#keys} Packages:" },
     { "type": "shell", "key": "{#separator}│  {#keys} Shell:" },
-    { "type": "custom", "format": "{#1}│" },
+    { "type": "custom", "format": "{#1}├──────────────────────" },
     
     // Desktop Environment
     { "type": "custom", "format": "{#1}│ {#}Desktop Environment:" },
@@ -47,7 +47,7 @@
     { "type": "font", "key": "{#separator}│  {#keys} Font:" },
     { "type": "cursor", "key": "{#separator}│  {#keys} Cursor:" },
     { "type": "terminal", "key": "{#separator}│  {#keys} Terminal:" },
-    { "type": "custom", "format": "{#1}│" },
+    { "type": "custom", "format": "{#1}├──────────────────────" },
     
     // Hardware Information
     { "type": "custom", "format": "{#1}│ {#}Hardware Information:" },
@@ -59,7 +59,7 @@
     { "type": "battery", "key": "{#separator}│  {#keys} Battery:" },
     { "type": "poweradapter", "key": "{#separator}│  {#keys} Power Adapter:" },
     { "type": "locale", "key": "{#separator}│  {#keys} Locale:" },
-    { "type": "custom", "format": "{#1}│" },
+    { "type": "custom", "format": "{#1}├──────────────────────" },
     
     // Colors
     { "type": "colors", "key": "{#separator}│", "symbol": "square"},
