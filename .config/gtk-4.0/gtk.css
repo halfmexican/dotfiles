@@ -1,24 +1,23 @@
-/* Define colors */
 @define-color accent_color #7e57c2;
 @define-color accent_bg_color #613583;
+.csd headerbar { min-height: 42px;}
 
-/* Headerbar customization */
-.csd headerbar {
-  min-height: 42px;
+headerbar windowcontrols button.close image {
+	background-color: @accent_color;
 }
 
-headerbar windowcontrols button.close image,
 headerbar GtkWindowControls button.close image {
-  background-color: @accent_color;
+    background-color: @accent_color;
 }
 
-/* GTK4 Window Controls */
-windowcontrols > button {
+/* GTK4 */
+
+windowcontrols > button { /* GTK4 */
   color: transparent;
   min-width: 2px;
   min-height: 2px;
   border-radius: 100%;
-  padding: 0;
+  padding: 1px;
   margin: 0 5px;
 }
 
@@ -26,22 +25,32 @@ windowcontrols > button > image {
   padding: 0;
 }
 
-/* Button styles */
 button.titlebutton.close,
-windowcontrols > button.close,
+windowcontrols > button.close {
+  background-color: #505050;
+}
+
+button.titlebutton.close:hover,
+windowcontrols > button.close:hover {
+  opacity: 0.8;
+}
+
 button.titlebutton.maximize,
-windowcontrols > button.maximize,
+windowcontrols > button.maximize {
+  background-color: #505050;
+}
+
+button.titlebutton.maximize:hover,
+windowcontrols > button.maximize:hover {
+  opacity: 0.8;
+}
+
 button.titlebutton.minimize,
 windowcontrols > button.minimize {
   background-color: #505050;
 }
 
-button.titlebutton.close:hover,
-windowcontrols > button.close:hover,
-button.titlebutton.maximize:hover,
-windowcontrols > button.maximize:hover,
 button.titlebutton.minimize:hover,
 windowcontrols > button.minimize:hover {
   opacity: 0.8;
 }
-
