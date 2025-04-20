@@ -1,6 +1,8 @@
+/* Color Definitions */
 @define-color accent_color #7e57c2;
 @define-color accent_bg_color #613583;
-/* Old Libadwaita Colors */
+
+/* Libadwaita Colors */
 @define-color window_bg_color #242424;
 @define-color window_fg_color #ffffff;
 @define-color view_bg_color #1e1e1e;
@@ -34,30 +36,32 @@
 @define-color shade_color rgba(0, 0, 0, 0.25);
 @define-color scrollbar_outline_color rgba(0, 0, 0, 0.5);
 
-/* Custom Color */
+/* Custom Colors */
 @define-color window-control-bg #505050;
 
-.csd headerbar { min-height: 42px;}
-
-headerbar windowcontrols button.close image {
-	background-color: @accent_color;
+/* Headerbar Styles */
+.csd headerbar {
+  min-height: 42px;
 }
 
-headerbar GtkWindowControls button.close image {
-    background-color: @accent_color;
+/* Window Controls - Common Styles */
+headerbar windowcontrols button image,
+headerbar GtkWindowControls button image,
+windowcontrols > button > image {
+  background-color: @window-control-bg;
+  padding: 0;
 }
 
-headerbar windowcontrols button image {
-	background-color: @window-control-bg;
+/* Close Button Specific Styles */
+headerbar windowcontrols button.close image,
+headerbar GtkWindowControls button.close image,
+button.titlebutton.close,
+windowcontrols > button.close {
+  background-color: @accent_color;
 }
 
-headerbar GtkWindowControls button image {
-    background-color: @window-control-bg;
-}
-
-/* GTK4 */
-
-windowcontrols > button { /* GTK4 */
+/* Window Controls - GTK4 */
+windowcontrols > button {
   color: transparent;
   background-color: transparent;
   min-width: 2px;
@@ -67,37 +71,20 @@ windowcontrols > button { /* GTK4 */
   margin: 0 5px;
 }
 
-windowcontrols > button > image {
-  padding: 0;
-}
-
-button.titlebutton.close,
-windowcontrols > button.close {
-  background-color: #505050;
-}
-
+/* Hover States */
 button.titlebutton.close:hover,
-windowcontrols > button.close:hover {
-  opacity: 0.8;
-}
-
-button.titlebutton.maximize,
-windowcontrols > button.maximize {
-  background-color: #505050;
-}
-
+windowcontrols > button.close:hover,
 button.titlebutton.maximize:hover,
-windowcontrols > button.maximize:hover {
-  opacity: 0.8;
-}
-
-button.titlebutton.minimize,
-windowcontrols > button.minimize {
-  background-color: #505050;
-}
-
+windowcontrols > button.maximize:hover,
 button.titlebutton.minimize:hover,
 windowcontrols > button.minimize:hover {
   opacity: 0.8;
 }
 
+/* Maximize/Minimize Buttons */
+button.titlebutton.maximize,
+windowcontrols > button.maximize,
+button.titlebutton.minimize,
+windowcontrols > button.minimize {
+  background-color: @window-control-bg;
+}
