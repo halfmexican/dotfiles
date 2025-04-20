@@ -44,23 +44,16 @@
   min-height: 42px;
 }
 
-/* Window Controls - Common Styles */
 headerbar windowcontrols button image,
-headerbar GtkWindowControls button image,
-windowcontrols > button > image {
+headerbar GtkWindowControls button image {
   background-color: @window-control-bg;
-  padding: 0;
 }
 
-/* Close Button Specific Styles */
 headerbar windowcontrols button.close image,
-headerbar GtkWindowControls button.close image,
-button.titlebutton.close,
-windowcontrols > button.close {
+headerbar GtkWindowControls button.close image {
   background-color: @accent_color;
 }
 
-/* Window Controls - GTK4 */
 windowcontrols > button {
   color: transparent;
   background-color: transparent;
@@ -71,20 +64,24 @@ windowcontrols > button {
   margin: 0 5px;
 }
 
+windowcontrols > button > image {
+  padding: 0;
+  background-color: @window-control-bg;
+}
+
+windowcontrols > button.close > image {
+  background-color: @accent_color;
+}
+
 /* Hover States */
-button.titlebutton.close:hover,
-windowcontrols > button.close:hover,
-button.titlebutton.maximize:hover,
-windowcontrols > button.maximize:hover,
-button.titlebutton.minimize:hover,
-windowcontrols > button.minimize:hover {
+button.titlebutton:hover,
+windowcontrols > button:hover {
   opacity: 0.8;
 }
 
-/* Maximize/Minimize Buttons */
+/* Title Buttons */
+button.titlebutton.close,
 button.titlebutton.maximize,
-windowcontrols > button.maximize,
-button.titlebutton.minimize,
-windowcontrols > button.minimize {
+button.titlebutton.minimize {
   background-color: @window-control-bg;
 }
